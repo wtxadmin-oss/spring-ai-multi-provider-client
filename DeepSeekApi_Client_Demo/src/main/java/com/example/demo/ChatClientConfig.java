@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Configuration;
 public class ChatClientConfig {
 
     @Bean
-    public ChatClient ZhipuChatClient(ZhiPuAiChatModel chatModel) {
+    public ChatClient zhipuChatClient(ZhiPuAiChatModel chatModel) {
         return ChatClient.create(chatModel);
     }
     @Bean
-    public ChatClient DeepSeekChatClient(DeepSeekChatModel chatModel) {
+    public ChatClient deepSeekChatClient(DeepSeekChatModel chatModel) {
         return ChatClient.create(chatModel);
     }
 }

@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>spring-ai-multi-provider-client</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>DeepSeekApi_Client_Demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Spring AI Multi-Provider Client</name>
+	<description>Unified Spring AI ChatClient integration for DeepSeek and Zhipu AI</description>
 	<url/>
 	<licenses>
 		<license/>

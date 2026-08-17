@@ -1,9 +1,8 @@
 package com.example.demo;
 
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.chat.client.ChatClientResponse;
-import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,9 +14,10 @@ import java.util.Scanner;
 public class ChatClientExample {
 
     @Bean
+    @ConditionalOnProperty(name = "app.cli.enabled", havingValue = "true", matchIfMissing = true)
     CommandLineRunner cli(
-            @Qualifier("ZhipuChatClient") ChatClient ZhipuChatClient,
-            @Qualifier("DeepSeekChatClient") ChatClient DeepSeekChatClient) {
+            @Qualifier("zhipuChatClient") ChatClient zhipuChatClient,
+            @Qualifier("deepSeekChatClient") ChatClient deepSeekChatClient) {
 
         return args -> {
             var scanner = new Scanner(System.in);
@@ -32,10 +32,10 @@ public class ChatClientExample {
             String choice = scanner.nextLine().trim();
 
             if (choice.equals("1")) {
-                chat = ZhipuChatClient;
+                chat = zhipuChatClient;
                 System.out.println("Using ZHIPU model");
             } else {
-                chat = DeepSeekChatClient;
+                chat = deepSeekChatClient;
                 System.out.println("Using DEEPSeek model");
             }
 
